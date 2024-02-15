@@ -1,0 +1,73 @@
+main.cpp:
+
+#include <iostream>
+#include "dynarr.h"
+
+using namespace std;
+
+int main()
+{
+    cout << "Hello world!" << endl;
+    return 0;
+}
+
+
+
+dynarr.h:
+
+#ifndef DYNARR_H_INCLUDED
+#define DYNARR_H_INCLUDED
+
+class dynarr
+{
+private:
+    int *data;
+    int size;
+
+public:
+    dynarr();
+    dynarr(int);
+    ~dynarr();
+    void setValue(int, int);
+    int getValue(int);
+};
+#endif // DYNARR_H_INCLUDED
+
+
+
+
+dynarr.cpp:
+
+#include <iostream>
+#include "dynarr.h"
+
+using namespace std;
+
+
+
+    dynarr:: dynarr()
+    {
+        data =NULL;
+        size = 0;
+    }
+    dynarr:: dynarr(int s)
+    {
+        data = new int [s];
+        size = s;
+    }
+
+    dynarr:: ~dynarr()
+    {
+        delete[] data;
+    }
+
+    void dynarr:: setValue(int index, int values)
+    {
+        data[index] = values;
+    }
+    int dynarr:: getValue(int index)
+    {
+        return data[index];
+    }
+
+
